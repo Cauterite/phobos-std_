@@ -124,7 +124,6 @@ private struct Ø {
 
 	import std_random = std.random;
 
-	import std_range = std.range;
 	import std_range_interfaces = std.range.interfaces;
 	import std_range_primitives = std.range.primitives;
 
@@ -169,9 +168,14 @@ private enum codegenØ = {
 	string R;
 	foreach (PkgName; __traits(allMembers, Ø)) {
 		foreach (Name; __traits(allMembers, __traits(getMember, Ø, PkgName))) {
-			enum Decl = `alias `~translateØ(Name)~` = Ø.`~PkgName~`.`~Name~`;`;
-			R ~= `static if (__traits(compiles, {`~Decl~`})) {
-				public `~Decl~`
+			enum Pri = `Ø.`~PkgName~`.`~Name;
+			enum Pub = translateØ(Name);
+			/* define if we can and not already defined */
+			R ~= `static if (
+				__traits(compiles, {alias X = `~Pri~`;}) &&
+				!__traits(compiles, {alias X = `~Pub~`;})
+			) {
+				public alias `~Pub~` = `~Pri~`;
 			};`~'\n';
 		};
 	};
