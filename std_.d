@@ -124,6 +124,7 @@ private struct Ø {
 
 	import std_random = std.random;
 
+	import std_range = std.range;
 	import std_range_interfaces = std.range.interfaces;
 	import std_range_primitives = std.range.primitives;
 
