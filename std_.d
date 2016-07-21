@@ -57,6 +57,8 @@ private struct Ø {
 
 	import std_bigint = std.bigint;
 
+	import std_bitmanip = std.bitmanip;
+
 	import std_compiler = std.compiler;
 
 	import std_complex = std.complex;
