@@ -140,8 +140,6 @@ private struct Ø {
 
 	import std_string = std.string;
 
-	import std_syserror = std.syserror;
-
 	import std_system = std.system;
 
 	import std_traits = std.traits;
