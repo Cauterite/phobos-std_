@@ -1,6 +1,6 @@
 /* -------------------------------------------------------------------------- */
 
-private struct Ø {
+private struct PkgsØ {
 
 	/* --- runtime --- */
 
@@ -167,19 +167,28 @@ private enum translateØ = (string Name) => Name~`_`;
 
 private enum codegenØ = {
 	string R;
-	foreach (PkgName; __traits(allMembers, Ø)) {
-		foreach (Name; __traits(allMembers, __traits(getMember, Ø, PkgName))) {
-			enum Pri = `Ø.`~PkgName~`.`~Name;
-			enum Pub = translateØ(Name);
-			/* define if we can and not already defined */
-			R ~= `static if (
-				__traits(compiles, {alias X = `~Pri~`;}) &&
-				!__traits(compiles, {alias X = `~Pub~`;})
-			) {
-				public alias `~Pub~` = `~Pri~`;
-			};`~'\n';
+
+	foreach (Pkg; __traits(allMembers, PkgsØ)) {
+		foreach (Sym; __traits(allMembers, __traits(getMember, PkgsØ, Pkg))) {
+
+			enum Pri = `PkgsØ.`~Pkg~`.`~Sym;
+			enum Pub = translateØ(Sym);
+
+			// issues.dlang.org/show_bug.cgi?id=16309
+			static if (Sym != `crcHexString` && __traits(compiles, mixin(
+				`{static assert(__traits(getProtection, `~Pri~`) == "public");}`
+			))) {
+				/* define if we can and not already defined */
+				R ~= `static if (
+					__traits(compiles, {alias X = `~Pri~`;}) &&
+					!__traits(compiles, {alias X = `~Pub~`;})
+				) {
+					public alias `~Pub~` = `~Pri~`;
+				};`~'\n';
+			};
 		};
 	};
+
 	return R;
 };
 
