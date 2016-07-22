@@ -154,6 +154,8 @@ private struct PkgsØ {
 
 	import std_utf = std.utf;
 
+	import std_uuid = std.uuid;
+
 	import std_variant = std.variant;
 
 	//import std_xml = std.xml;
