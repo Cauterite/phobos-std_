@@ -9,4 +9,5 @@ Not much to it really
 		GC_.collect(); // D-runtime symbols are exposed too
 	};
 
+If you get deprecation messages, try compiling with `-de`.
 Note: it's not well tested. There could be problems with modules that publicly import other internal modules.
