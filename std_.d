@@ -6,7 +6,7 @@ private struct PkgsØ {
 
 	import core_atomic = core.atomic;
 
-	//import core_attribute = core.attribute;
+	import core_attribute = core.attribute;
 
 	import core_bitop = core.bitop;
 
@@ -34,9 +34,9 @@ private struct PkgsØ {
 	import core_sync_rwmutex = core.sync.rwmutex;
 	import core_sync_semaphore = core.sync.semaphore;
 
-	import core_thread = core.thread;
+	version (none) import core_thread = core.thread;
 
-	import core_time = core.time;
+	version (none) import core_time = core.time;
 
 	import core_vararg = core.vararg;
 
@@ -82,7 +82,7 @@ private struct PkgsØ {
 
 	import std_digest_crc = std.digest.crc;
 	import std_digest_digest = std.digest.digest;
-	//import std_digest_hmac = std.digest.hmac;
+	import std_digest_hmac = std.digest.hmac;
 	import std_digest_md = std.digest.md;
 	import std_digest_ripemd = std.digest.ripemd;
 	import std_digest_sha = std.digest.sha;
@@ -91,7 +91,28 @@ private struct PkgsØ {
 
 	import std_exception = std.exception;
 
-	// import std.experimental.
+	import std_experimental_allocator = std.experimental.allocator;
+	import std_experimental_allocator_common = std.experimental.allocator.common;
+	import std_experimental_allocator_gc_allocator = std.experimental.allocator.gc_allocator;
+	import std_experimental_allocator_mallocator = std.experimental.allocator.mallocator;
+	import std_experimental_allocator_mmap_allocator = std.experimental.allocator.mmap_allocator;
+	import std_experimental_allocator_showcase = std.experimental.allocator.showcase;
+	import std_experimental_allocator_typed = std.experimental.allocator.typed;
+	import std_experimental_allocator_building_blocks = std.experimental.allocator.building_blocks;
+	import std_experimental_allocator_building_blocks_affix_allocator = std.experimental.allocator.building_blocks.affix_allocator;
+	import std_experimental_allocator_building_blocks_allocator_list = std.experimental.allocator.building_blocks.allocator_list;
+	import std_experimental_allocator_building_blocks_bitmapped_block = std.experimental.allocator.building_blocks.bitmapped_block;
+	import std_experimental_allocator_building_blocks_bucketizer = std.experimental.allocator.building_blocks.bucketizer;
+	import std_experimental_allocator_building_blocks_fallback_allocator = std.experimental.allocator.building_blocks.fallback_allocator;
+	import std_experimental_allocator_building_blocks_free_list = std.experimental.allocator.building_blocks.free_list;
+	import std_experimental_allocator_building_blocks_free_tree = std.experimental.allocator.building_blocks.free_tree;
+	import std_experimental_allocator_building_blocks_kernighan_ritchie = std.experimental.allocator.building_blocks.kernighan_ritchie;
+	import std_experimental_allocator_building_blocks_null_allocator = std.experimental.allocator.building_blocks.null_allocator;
+	import std_experimental_allocator_building_blocks_quantizer = std.experimental.allocator.building_blocks.quantizer;
+	import std_experimental_allocator_building_blocks_region = std.experimental.allocator.building_blocks.region;
+	import std_experimental_allocator_building_blocks_scoped_allocator = std.experimental.allocator.building_blocks.scoped_allocator;
+	import std_experimental_allocator_building_blocks_segregator = std.experimental.allocator.building_blocks.segregator;
+	import std_experimental_allocator_building_blocks_stats_collector = std.experimental.allocator.building_blocks.stats_collector;
 
 	import std_file = std.file;
 
